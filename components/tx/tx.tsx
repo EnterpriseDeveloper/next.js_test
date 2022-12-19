@@ -23,10 +23,6 @@ export default function Transactions(props: any) {
     await fetch("/api/socket");
     socket = io();
 
-    socket.on("connect", () => {
-      console.log("connected");
-    });
-
     socket.on("tx-update", (msg) => {
       let index = tx.findIndex((x: any) => {
         return x.tx_id == msg.id;

@@ -8,13 +8,6 @@ export const getAllTxAPI = async () => {
   return data.data;
 };
 
-export const getAllTxID_API = async () => {
-  const data = await getAllTxAPI();
-
-  return data.results.map((x: any) => {
-    return x.tx_id;
-  });
-};
 
 export const getTxByIdAPI = async (id: string) => {
   const data = await axios.get(`${TxByIdURL}${id}`).catch((err) => {

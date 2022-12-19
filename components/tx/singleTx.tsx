@@ -11,13 +11,13 @@ export default function SingleTx(props: any) {
         <b>Anchor_mode:</b> {props.props.tx.anchor_mode}
       </p>
       <p>
-        <b>Block_hash:</b> {props.props.tx.block_hash}
+        <b>Tx_status:</b> {props.props.tx.tx_status}
       </p>
       <p>
-        <b>Block_height:</b> {props.props.tx.block_height}
+        <b>Tx_type:</b> {props.props.tx.tx_type}
       </p>
       <p>
-        <b>Burn_block_time:</b> {props.props.tx.burn_block_time}
+        <b>Sender_address:</b> {props.props.tx.sender_address}
       </p>
     </div>
   );

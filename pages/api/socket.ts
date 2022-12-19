@@ -21,10 +21,9 @@ const SocketHandler = (req: any, res: any) => {
 
 const connectToWebSocket = async (socket: any, txs: String[]) => {
   try {
+    const client = await connectWebSocketClient(wsURL);
     txs.map(async (tx: any) => {
-      const client = await connectWebSocketClient(wsURL);
       const sub = await client.subscribeTxUpdates(tx, (event) => {
-        console.log(event)
         socket.broadcast.emit("tx-update", {
           status: event.tx_status,
           id: event.tx_id,
