@@ -1,1 +1,2 @@
-export const MempoolTxURL = "https://docs.hiro.so/api#tag/Transactions/operation/get_mempool_transaction_list";
+export const MempoolTxURL = "https://stacks-node-api.testnet.stacks.co/extended/v1/tx/mempool";
+export const TxByIdURL = "https://stacks-node-api.testnet.stacks.co/extended/v1/tx/"
