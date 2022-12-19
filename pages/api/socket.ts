@@ -19,17 +19,17 @@ const SocketHandler = (req: any, res: any) => {
   res.end();
 };
 
-const connectToWebSocket = async (socket: any, txs: String[]) => {
+const connectToWebSocket = async (socket: any, txs: string[]) => {
   try {
     const client = await connectWebSocketClient(wsURL);
-    txs.map(async (tx: any) => {
-      const sub = await client.subscribeTxUpdates(tx, (event) => {
+    for (let i = 0; i < txs.length; i++) {
+      const sub = await client.subscribeTxUpdates(txs[i], (event) => {
         socket.broadcast.emit("tx-update", {
           status: event.tx_status,
           id: event.tx_id,
         });
       });
-    });
+    }
   } catch (err) {
     console.log(err);
   }
