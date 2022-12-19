@@ -2,10 +2,18 @@ import Link from "next/link";
 import React, { Fragment } from "react";
 import styles from "./header.module.css";
 
-import Container from "react-bootstrap/Container";
-import Navbar from "react-bootstrap/Navbar";
+import { useAuth } from "@micro-stacks/react";
+
+import { Container, Navbar, Button } from "react-bootstrap";
 
 function Header() {
+  const { openAuthRequest, isRequestPending, signOut, isSignedIn } = useAuth();
+  const label = isRequestPending
+    ? "Loading..."
+    : isSignedIn
+    ? "Sign out"
+    : "Connect Stacks wallet";
+
   return (
     <Fragment>
       <Navbar>
@@ -18,7 +26,15 @@ function Header() {
           <Navbar.Toggle />
           <Navbar.Collapse className="justify-content-end">
             <Navbar.Text>
-              Signed in as: <a href="#login">Mark Otto</a>
+              <Button
+                variant="primary"
+                onClick={async () => {
+                  if (isSignedIn) await signOut();
+                  else await openAuthRequest();
+                }}
+              >
+                {label}
+              </Button>
             </Navbar.Text>
           </Navbar.Collapse>
         </Container>
