@@ -1,6 +1,12 @@
+import { useAccount } from "@micro-stacks/react";
+
 export default function SingleTx(props: any) {
+  const { stxAddress } = useAccount();
+
+  if (!stxAddress)
+    return <p style={{ textAlign: "center" }}>Please connect wallet</p>;
   return (
-    <div style={{textAlign: "center"}}>
+    <div style={{ textAlign: "center" }}>
       <p>
         <b>Anchor_mode:</b> {props.props.tx.anchor_mode}
       </p>
