@@ -1,24 +1,30 @@
 import Link from "next/link";
 import React, { Fragment } from "react";
+import styles from "./header.module.css";
+
+import Container from "react-bootstrap/Container";
+import Navbar from "react-bootstrap/Navbar";
 
 function Header() {
-    return(
-        <Fragment>
+  return (
+    <Fragment>
+      <Navbar>
+        <Container>
+          <Navbar.Brand>
             <Link href="/">
-                My TODO
+              <p className={styles.logo}>Tx parser</p>
             </Link>
-            <nav>
-                <ul>
-                    <li>
-                        <Link href='/create'>Create</Link>
-                    </li>
-                    <li>
-                        <Link href='/contact'>Contract</Link>
-                    </li>
-                </ul>
-            </nav>
-        </Fragment>
-    )
+          </Navbar.Brand>
+          <Navbar.Toggle />
+          <Navbar.Collapse className="justify-content-end">
+            <Navbar.Text>
+              Signed in as: <a href="#login">Mark Otto</a>
+            </Navbar.Text>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+    </Fragment>
+  );
 }
 
 export default Header;

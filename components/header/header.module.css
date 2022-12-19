@@ -1,0 +1,12 @@
+.logo{
+    color: chocolate;
+}
+
+.oneLine{
+    display: inline;
+}
+
+.line{
+    display: flex;
+    flex-direction: row;
+}
