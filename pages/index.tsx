@@ -1,7 +1,7 @@
 import type { GetServerSidePropsContext } from "next";
 
 import Transactions from "../components/tx/tx";
-import { getDehydratedStateFromSession } from "../helpers/session-helpers";
+import { getDehydratedStateFromSession } from "../helpers/wallet/session-helpers";
 
 export async function getServerSideProps(ctx: GetServerSidePropsContext) {
   return {

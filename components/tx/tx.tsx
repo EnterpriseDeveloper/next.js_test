@@ -1,8 +1,9 @@
 import { useAccount } from "@micro-stacks/react";
+import classes from './tx.module.css'
 
 export default function Transactions() {
   const { stxAddress } = useAccount();
 
-  if (!stxAddress) return <h2>No active session</h2>;
-  return <h2>{stxAddress}</h2>;
+  if (!stxAddress) return (<p className={classes.textCenter}>Please connect wallet</p>);
+  return (<h2>{stxAddress}</h2>);
 }

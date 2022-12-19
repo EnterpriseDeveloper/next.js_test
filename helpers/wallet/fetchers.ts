@@ -1,4 +1,4 @@
-import { API_URL } from './constants';
+import { API_URL } from '../../config/walletConst';
  
 export const saveSession = async (dehydratedState: string) => {
   await fetch(API_URL + '/api/session/save', {

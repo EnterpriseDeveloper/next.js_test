@@ -7,7 +7,7 @@ import Body from "../components/body/Body";
 import { useCallback } from "react";
 
 import { ClientProvider } from "@micro-stacks/react";
-import { destroySession, saveSession } from "../helpers/fetchers";
+import { destroySession, saveSession } from "../helpers/wallet/fetchers";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
